@@ -1,5 +1,103 @@
 {
-  "User": {
-    "title": { "string": {} }
+  "Campaign": {
+    "campaign_id": {
+      "regexp": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"
+    },
+    "campaign_name": { "regexp": "[A-Z][a-z]{5,10}" },
+    "email_template_key": {
+      "string": [
+        "c71cfa8a-92cf-47a5-9aa1-b831e1eaab8b/10e0b918-d50c-497d-a224-2903defcab0e.html"
+      ]
+    },
+    "email_template_url": {
+      "string": [
+        "https://api.capdev.link/v1/blastoise/download_file/dGhhbmcua2lldUAyMzU5bWVkaWEuY29tL2M3MWNmYThhLTkyY2YtNDdhNS05YWExLWI4MzFlMWVhYWI4Yi8xMGUwYjkxOC1kNTBjLTQ5N2QtYTIyNC0yOTAzZGVmY2FiMGUuaHRtbA=="
+      ]
+    },
+    "config_csv_key": {
+      "string": ["444059ea-554d-414f-8745-21e56e17ef73/email-with-cat-1000.csv"]
+    },
+    "config_csv_url": {
+      "string": [
+        "https://api.capdev.link/v1/blastoise/download_file/dGhhbmcua2lldUAyMzU5bWVkaWEuY29tLzQ0NDA1OWVhLTU1NGQtNDE0Zi04NzQ1LTIxZTU2ZTE3ZWY3My9lbWFpbC13aXRoLWNhdC0xMDAwLmNzdg=="
+      ]
+    },
+    "attachment_key_prefix": {
+      "regexp": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"
+    },
+    "email_subject": {
+      "loremWords": { "minLength": 5, "maxLength": 10 }
+    },
+    "to_email_column": { "string": ["to_emails"] },
+    "attachment_column": { "string": ["attachments"] },
+    "schedule_dates": {
+      "hasMany": {
+        "dateTime": {
+          "min": "2010-01-01T00:00:00Z",
+          "max": "2020-12-31T23:59:59Z"
+        }
+      }
+    },
+    "owner_email": {
+      "regexp": "[a-z]{5,10}@[a-z]{5}\\.[a-z]{2,3}"
+    },
+    "owner_name": null,
+    "send_from_email": {
+      "regexp": "[a-z]{5,10}@[a-z]{5}\\.[a-z]{2,3}"
+    },
+    "send_from_name": "Thang",
+    "reply_to_email": {
+      "regexp": "[a-z]{5,10}@[a-z]{5}\\.[a-z]{2,3}"
+    },
+    "allow_opt_out": { "boolean": {} },
+    "opt_out_message": { "string": {} },
+    "campaign_status": { "string": ["Ended", "Active", "Draft"] },
+    "created_at": {
+      "dateTime": {
+        "min": "2010-01-01T00:00:00Z",
+        "max": "2020-12-31T23:59:59Z"
+      }
+    },
+    "updated_at": {
+      "dateTime": {
+        "min": "2010-01-01T00:00:00Z",
+        "max": "2020-12-31T23:59:59Z"
+      }
+    },
+    "tasks": [],
+    "opt_out_emails": [],
+    "edm_category_field": { "loremWord": {} },
+    "edms_selected": {
+      "hasMany": "EdmSelected"
+    }
+  },
+  "EdmSelected": {
+    "catName": { "string": ["City Hall", "Marymount", "Orchard"] },
+    "percentage": {
+      "int": {
+        "min": 10,
+        "max": 100
+      }
+    },
+    "edm": {
+      "belongsTo": "Edm"
+    }
+  },
+  "Edm": {
+    "id": {
+      "regexp": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"
+    },
+    "name": { "string": ["City Hall", "Marymount", "Orchard"] },
+    "width": { "int": [700] },
+    "bg_color": { "regexp": "#[0-9A-F]{6}" },
+    "thumbnail_url": {
+      "regexp": "https://picsum\\.photos/300/200?grayscale&random=[0-9]{4}"
+    },
+    "created_at": {
+      "dateTime": {
+        "min": "2010-01-01T00:00:00Z",
+        "max": "2020-12-31T23:59:59Z"
+      }
+    }
   }
 }
