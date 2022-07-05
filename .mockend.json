@@ -31,21 +31,21 @@
     "to_email_column": { "string": ["to_emails"] },
     "attachment_column": { "string": ["attachments"] },
     "schedule_dates": {
-      "hasMany": {
-        "dateTime": {
-          "min": "2010-01-01T00:00:00Z",
-          "max": "2020-12-31T23:59:59Z"
-        }
+      "dateTime": {
+        "min": "2010-01-01T00:00:00Z",
+        "max": "2020-12-31T23:59:59Z"
       }
     },
     "owner_email": {
       "regexp": "[a-z]{5,10}@[a-z]{5}\\.[a-z]{2,3}"
     },
-    "owner_name": null,
+    "owner_name": {
+      "regexp": "[A-Z][a-z]{5,10}"
+    },
     "send_from_email": {
       "regexp": "[a-z]{5,10}@[a-z]{5}\\.[a-z]{2,3}"
     },
-    "send_from_name": "Thang",
+    "send_from_name": { "regexp": "[A-Z][a-z]{5,10}" },
     "reply_to_email": {
       "regexp": "[a-z]{5,10}@[a-z]{5}\\.[a-z]{2,3}"
     },
@@ -64,14 +64,18 @@
         "max": "2020-12-31T23:59:59Z"
       }
     },
-    "tasks": [],
-    "opt_out_emails": [],
+    "tasks": {
+      "string": {}
+    },
+    "opt_out_emails": {
+      "regexp": "[a-z]{5,10}@[a-z]{5}\\.[a-z]{2,3}"
+    },
     "edm_category_field": { "loremWord": {} },
     "edms_selected": {
-      "hasMany": "EdmSelected"
+      "hasMany": "Edmselected"
     }
   },
-  "EdmSelected": {
+  "Edmselected": {
     "catName": { "string": ["City Hall", "Marymount", "Orchard"] },
     "percentage": {
       "int": {
