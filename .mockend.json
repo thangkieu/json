@@ -84,7 +84,7 @@
       }
     },
     "edm": {
-      "belongsTo": "Edm"
+      "belongsTo": "Campaign"
     }
   },
   "Edm": {
