@@ -73,10 +73,16 @@
     "edm_category_field": { "loremWord": {} },
     "edms_selected": {
       "hasMany": "Edmselected"
+    },
+    "edms_click_rate": {
+      "hasMany": "Clickrate"
     }
   },
   "Edmselected": {
-    "catName": { "string": ["City Hall", "Marymount", "Orchard"] },
+    "id": {
+      "regexp": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"
+    },
+    "category_name": { "string": ["City Hall", "Marymount", "Orchard"] },
     "percentage": {
       "int": {
         "min": 10,
@@ -84,7 +90,21 @@
       }
     },
     "edm": {
-      "belongsTo": "Campaign"
+      "belongsTo": "Edm"
+    }
+  },
+  "Clickrate": {
+    "id": {
+      "regexp": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"
+    },
+    "click_rate": {
+      "int": {
+        "min": 10,
+        "max": 100
+      }
+    },
+    "edm_selected": {
+      "belongsTo": "Edmselected"
     }
   },
   "Edm": {
