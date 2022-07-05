@@ -95,7 +95,7 @@
     "width": { "int": [700] },
     "bg_color": { "regexp": "#[0-9A-F]{6}" },
     "thumbnail_url": {
-      "regexp": "https://picsum\\.photos/300/200?grayscale&random=[0-9]{4}"
+      "regexp": "https://picsum\\.photos/300/200\\?grayscale\\&random=[0-9]{4}"
     },
     "created_at": {
       "dateTime": {
